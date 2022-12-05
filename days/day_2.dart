@@ -6,14 +6,8 @@ typedef Order = Tuple2<String, int>;
 typedef Position = Tuple2<int, int>;
 typedef PositionAim = Tuple3<int, int, int>;
 
-Order _createOrder(String line) {
-  List<String> split = line.split(" ");
-  return Order(split[0], int.parse(split[1]));
-}
-
 void main(List<String> arguments) {
-  final lines =
-      File('inputs/day_2.txt').readAsStringSync().split('\n').toList();
+  final lines = File('inputs/day_2.txt').readAsStringSync().split('\n').toList();
 
   Position finalPosition = lines.map(_createOrder).fold(Position(0, 0), (p, e) {
     int h = p.item1;
@@ -31,8 +25,7 @@ void main(List<String> arguments) {
 
   int solution1 = finalPosition.item1 * finalPosition.item2;
 
-  PositionAim finalPositionAim =
-      lines.map(_createOrder).fold(PositionAim(0, 0, 0), (p, e) {
+  PositionAim finalPositionAim = lines.map(_createOrder).fold(PositionAim(0, 0, 0), (p, e) {
     int h = p.item1;
     int d = p.item2;
     int a = p.item3;
@@ -52,4 +45,9 @@ void main(List<String> arguments) {
 
   print('1 : $solution1');
   print('2 : $solution2');
+}
+
+Order _createOrder(String line) {
+  List<String> split = line.split(" ");
+  return Order(split[0], int.parse(split[1]));
 }

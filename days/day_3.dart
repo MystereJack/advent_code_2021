@@ -1,8 +1,7 @@
 import 'dart:io';
 
 void main(List<String> arguments) async {
-  final lines =
-      File('inputs/day_3.txt').readAsStringSync().split('\n').toList();
+  final lines = File('inputs/day_3.txt').readAsStringSync().split('\n').toList();
 
   List<int> sum = lines.fold([], (p, e) {
     List<int> el = e.split('').map((e1) => int.parse(e1)).toList();

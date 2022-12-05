@@ -1,11 +1,8 @@
 import 'dart:io';
 
 void main(List<String> arguments) {
-  final lines = File('inputs/day_1.txt')
-      .readAsStringSync()
-      .split('\n')
-      .map((e) => int.parse(e))
-      .toList();
+  final lines =
+      File('inputs/day_1.txt').readAsStringSync().split('\n').map((e) => int.parse(e)).toList();
 
   var temp = lines[0];
   int solution1 = lines.fold(0, (p, e) {
@@ -30,14 +27,4 @@ void main(List<String> arguments) {
 
   print('1 : $solution1');
   print('2 : $solution2');
-  /**
-
-  List<int> basicList = await File('day_1/input.txt')
-      .openRead()
-      .transform(utf8.decoder)
-      .transform(LineSplitter())
-      .map((element) => int.parse(element))
-      .toList();
-
-   */
 }
